@@ -45,7 +45,7 @@ public:
                     memo[i][j] = 0;
                 }
                 else if (text1[i-1] == text2[j-1]) {
-                    cout << text1[i] << "," << text2[j] << endl;
+                    // cout << text1[i] << "," << text2[j] << endl;
                     memo[i][j] = 1 + memo[i - 1][j - 1];
                 }
                 else {
@@ -53,12 +53,12 @@ public:
                 }
             }
         }
-        for (i = 0; i <= n; i++) {
-            cout << endl;
-            for (j = 0; j <= m; j++) {
-                cout << memo[i][j] << endl;
-            }
-        }
+        // for (i = 0; i <= n; i++) {
+        //     cout << endl;
+        //     for (j = 0; j <= m; j++) {
+        //         cout << memo[i][j] << endl;
+        //     }
+        // }
         return memo[n][m];
     }
 };
