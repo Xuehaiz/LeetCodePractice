@@ -33,17 +33,27 @@ public:
             if (res->next == nullptr && (l1->next || l2->next)) {
                 res->next = new ListNode(0);
             }
+            // update l1,l2,res
             res = res->next;
-        	if (l1->next) {
+            if (l1->next && l2->next) {
+                l1 = l1->next;
+                l2 = l2->next;
+            }
+        	else if (l1->next && !l2->next) {
         		l1 = l1->next;
-        	} else {
-        		l1 = nullptr;
-        	}
-        	if (l2->next) {
+                l2->next = new ListNode(0);
+                l2 = l2->next;
+        	} 
+
+        	else if (l2->next && !l1->next) {
         		l2 = l2->next;
-        	} else {
-        		l2 = nullptr;
+                l1->next = new ListNode(0);
+                l1 = l1->next;
         	}
+            else {
+                l1 = nullptr;
+                l2 = nullptr;
+            }
         }
         return hd;
     }
